@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+  <meta charset="UTF-8">
+
+  <title>MY APP</title>
+
+  <style>
+    .quotes {
+      list-style: none;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+
+    header {
+      text-align: center;
+      /*font-family:"Lucida Handwriting"*/
+      font-weight: bold;
+      font-size: 3em;
+      color: green;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      box-shadow: 0px 2px;
+    }
+
+    .p1 {
+      font-family: "Lucida Console";
+      font-size: 17px;
+    }
+
+    .butt {
+      background-color: #4CAF50;
+      font-size: 13px;
+      padding: 5px 20px;
+      border-radius: 8px;
+      border: 2px solid #030f03;
+
+    }
+
+    .img {
+      border: 2px solid black;
+    }
+
+    .second{
+      overflow: scroll;
+      height: 50vh;
+      border: 5px solid green;
+    }
+
+    
+    .nam {
+      position: relative;
+      left: 470px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    body{
+      overflow: hidden;
+    }
+    .cap {
+      position: relative;
+      left: 500px;
+      font-family: Arial, Helvetica, sans-seri;
+    }
+
+    .Mform {
+      display: flex;
+      justify-content: center;
+      line-height: 0%;
+      position: relative;
+      left: -50px;
+    }
+
+    .img {
+      position: relative;
+      left: 500px;
+    }
+
+    input[type="text"] {
+      width: 150%;
+      height: 10%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>XMeme</header>
+  <div class="container">
+
+    <h1> Meme Stream</h1>
+
+    <div class="Mform">
+
+
+      <form action="/memes" method="POST">
+        <p class="p1">Meme Owner</p>
+        <input type="text" placeholder="Enter your full name" name="Meme_Owner">
+        <br>
+        <p class="p1">Caption</p>
+        <input type="text" placeholder="Be Creative with the caption" name="Caption">
+        <br>
+        <p class="p1">Meme URL</p>
+        <input type="url" placeholder="Enter URL of your meme here" name="Meme_URL">
+
+        <button class="butt" type="submit">Submit</button>
+      </form>
+    </div>
+    <br>
+    <div class="second">
+    <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-decoration-line: underline;
+    text-decoration-color:green;;"> Recent Memes </h2>
+
+    
+      <ul class="meme">
+        <!-- Loop through quotes -->
+        <% for(let i=quotes.length-1, count=1; i>=0 && count<=100 ; i--, count++) { %>
+
+            <li class="quote">
+              <!-- Output name from the iterated quote object -->
+              <span class="nam" style="font-weight:bold;font-size : 125%">
+                <%=quotes[i].Meme_Owner%>
+              </span>
+              <br>
+              <br <!-- Output quote from the iterated quote object -->
+              <span class="cap" style="color: green;">
+                <%=quotes[i].Caption %>
+              </span>
+              <br>
+ 
+              <img class="img" src="<%=quotes[i].Meme_URL %>" alt="image" width="350" height="350">
+              <br>
+              <br>
+            </li>
+            <% } %>
+      </ul>
+  </div>
+
+  
+</body>
+
+
+</html>
